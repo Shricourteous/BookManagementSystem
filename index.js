@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
+const dotenv = require("dotenv");
 const routeBooksJs = require("./routes/books");
 const routeUsersJs = require("./routes/users");
+
+dotenv.config();
 
 app.use(express.json());
 
