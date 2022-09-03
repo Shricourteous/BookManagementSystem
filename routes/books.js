@@ -110,4 +110,38 @@ router.post("/",(req, res)=>{
     })
 });
 
+/**
+ * Route: /books/:id
+ * Method: PUT
+ * Description: Update book by ID
+ * Access: Public
+ * Parameters: id
+ * Data : author, name,genre, price, publisher, id, (as required)
+ */
+router.put("/:id",(req,res)=>{
+    const {id} = req.params;
+    const {data} = req.body;
+    
+    const user = users.find((each)=> each.id===id);
+    if (!user){
+        return res.status(404).json({
+            success : false,
+            message :"Book Does not exists"
+        });
+    }
+    const updatedbooks = books.map((each)=>{
+        if(each.id === id){
+            return {
+                ...each,
+                ...data
+            }
+        }
+        return each; 
+    });
+    return res.status(200).json({
+        message : true,
+        data : updatedbooks
+    });
+});
+
 module.exports = router;

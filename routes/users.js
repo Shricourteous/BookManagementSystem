@@ -8,8 +8,15 @@ router.get("/",(req, res)=>{
         success : true,
         users : users
     })
-})
+});
 
+/**
+ * Route: /users
+ * Method: GET
+ * Description: Get All user
+ * Access: Public
+ * Parameters: none
+ */
 router.get("/:id",(req,res)=>{
     const {id} = req.params;
     const user = users.find((each)=>each.id===id);
@@ -22,7 +29,7 @@ router.get("/:id",(req,res)=>{
         success : true,
         data : user
     });
-})
+});
 /**
  * Route: /users
  * Method: POST
@@ -120,7 +127,7 @@ router.delete("/:id",(req,res)=>{
  * Parameters: id
  */
 
-router.get("subscription-details/:id",(req,res)=>{
+router.get("/subscription-details/:id",(req,res)=>{
     const {id} = req.params;
 
     const user = users.find((each)=> each.id === id);
