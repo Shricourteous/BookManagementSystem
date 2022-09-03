@@ -82,7 +82,7 @@ router.get("/issued/by-user",(req,res)=>{
  * Description: Create new books
  * Access: Public
  * Parameters: none
- * Data : author, name,genre, price, publisher, id
+ * Data : author, name,genre, price, publisher, id(should be in double quatation)
  */
 
 router.post("/",(req, res)=>{
@@ -94,11 +94,10 @@ router.post("/",(req, res)=>{
         message : "no data provided"
      });
     }
-    console.log(data.id);
     const book = books.find((each)=> each.id === data.id);
     if(book){
         return res.status(404).json({
-            success : "False",
+            success : false,
             message : "The usr already exists with this id"
         });
     }
