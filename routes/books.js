@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {books} = require("../data/books.json");
 const {users} = require("../data/users.json");
-const { getAllBooks, getSingleBookById, getAllIssuedBook } = require("../controllers/book-controller");
+const { getAllBooks, getSingleBookById, getAllIssuedBook, addNewBook,  updateBookById, getSingleBookByName } = require("../controllers/book-controller");
 // const app = express();
 
 /**
@@ -22,6 +22,8 @@ router.get("/",getAllBooks);
  * Parameters: id
  */
 router.get("/:id",getSingleBookById);
+router.get("/getbook/name/:name",getSingleBookByName);
+
 
 /**
  * Route: /books/issued/by-user
@@ -41,30 +43,7 @@ router.get("/issued/by-user",getAllIssuedBook);
  * Data : author, name,genre, price, publisher, id(should be in double quatation)
  */
 
-router.post("/",(req, res)=>{
-    const {data} = req.body;
-    
-    if(!data){
-     return res.status(404).json({
-        success:false,
-        message : "no data provided"
-     });
-    }
-    const book = books.find((each)=> each.id === data.id);
-    if(book){
-        return res.status(404).json({
-            success : false,
-            message : "The usr already exists with this id"
-        });
-    }
-
-    const allBooks = [...books,data];
-    return res.status(200).json({
-        success:true,
-        message: "Data added successfully",
-        data : allBooks
-    })
-});
+router.post("/",addNewBook);
 
 /**
  * Route: /books/:id
@@ -74,30 +53,6 @@ router.post("/",(req, res)=>{
  * Parameters: id
  * Data : author, name,genre, price, publisher, id, (as required)
  */
-router.put("/:id",(req,res)=>{
-    const {id} = req.params;
-    const {data} = req.body;
-    
-    const user = users.find((each)=> each.id===id);
-    if (!user){
-        return res.status(404).json({
-            success : false,
-            message :"Book Does not exists"
-        });
-    }
-    const updatedbooks = books.map((each)=>{
-        if(each.id === id){
-            return {
-                ...each,
-                ...data
-            }
-        }
-        return each; 
-    });
-    return res.status(200).json({
-        message : true,
-        data : updatedbooks
-    });
-});
+router.put("/:id",updateBookById);
 
 module.exports = router;

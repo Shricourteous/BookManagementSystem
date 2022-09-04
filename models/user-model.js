@@ -16,12 +16,16 @@ const userSchema = new Schema(
             type : String,
             required:true,
         },
-        issuedbook :{
+        issuedBook :{
             type : mongoose.Schema.Types.ObjectId,
             ref : "Book",
             required: false,
         },
         returnDate :{
+            type : String,
+            required:false,
+        },
+        issuedDate: {
             type : String,
             required:false,
         },
@@ -32,10 +36,10 @@ const userSchema = new Schema(
         subscriptionDate :{
             type : String,
             required:true,
-        },
+        }
     },
     {
-        timestamp: true,
+        timestamps: true,
     }
 );
 //collection/DB will have a name "books"
