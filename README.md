@@ -50,10 +50,7 @@ GET: Get all issued books✅ <br/>
 
 ## /books/issued/withFine
 
-//////////////////////////////////////
-// TODO TASK // 🏁                 //         
-GET: Get all issued books with fine//
-////////////////////////////////////
+
 # Subscription Types
 
 Basic (3 months)<br/>
