@@ -17,18 +17,18 @@ https://documenter.getpostman.com/view/11423344/VUqyoZdU
 
 ## /users
 
-POST: Create a new user ✅ <br/>
-GET: Get all list of users ✅ <br/>
+POST: Create a new user <br/>
+GET: Get all list of users <br/>
 
 ## /users/{id}
 
-GET: Get a user by id ✅ <br/>
-PUT: Update a user by id ✅ <br/>
-DELETE: Delete a user by id (check if he/she still has an issued book)<br/> (is there any fine to be paid) ✅ 
+GET: Get a user by id <br/>
+PUT: Update a user by id <br/>
+DELETE: Delete a user by id (check if he/she still has an issued book)<br/> (is there any fine to be paid) 
 
 ## /users/subscription-details/{id}
 
-GET: Get user subscription details ✅ <br/>
+GET: Get user subscription details <br/>
 
 1. Date of subscription<br/>
 2. Valid till<br/>
@@ -36,13 +36,13 @@ GET: Get user subscription details ✅ <br/>
 
 ## /books
 
-GET: Get all books ✅ <br/>
-POST: Create/Add a new book ✅ <br/>
+GET: Get all books <br/>
+POST: Create/Add a new book <br/>
 
 ## /books/{id}
 
-GET: Get a book by id ✅<br/>
-PUT: Update a book by id ✅ <br/>
+GET: Get a book by id<br/>
+PUT: Update a book by id <br/>
 
 ## /books/issued/by-user
 
